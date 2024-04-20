@@ -1,6 +1,6 @@
 import pygame
 
-from game import settings
+from {{cookiecutter.pyproject_slug}} import settings
 
 class Shape:
     def __init__(self, game):
