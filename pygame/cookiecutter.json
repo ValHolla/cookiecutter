@@ -1,0 +1,5 @@
+{
+  "project_slug": "pygame-game",
+  "pyproject_description":"Game created by ValHolla <valholla75@gmail.com>",
+  "pyproject_slug": "{{ cookiecutter.project_slug|lower|replace(' ','_')|replace('-','_') }}",
+}

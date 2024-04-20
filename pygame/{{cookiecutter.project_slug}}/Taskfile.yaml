@@ -1,0 +1,46 @@
+# task cli documentation
+# https://taskfile.dev/usage/
+# https://taskfile.dev/styleguide/
+
+version: '3'
+
+env:
+  LOG_LEVEL:
+    sh: echo "${LOG_LEVEL:-DEBUG}"
+
+tasks:
+
+# poetry cli documentation
+# https://python-poetry.org/docs/cli/
+
+  install:
+    aliases: [i]
+    desc: Installs the project dependencies via poetry install
+    cmds:
+      - poetry install --no-root
+      - poetry lock --no-update
+      - poetry install --sync --no-root
+
+  fmt:
+    aliases: [f]
+    desc: Format with isort & black via poetry
+    cmds:
+      # https://pycqa.github.io/isort/
+      - poetry run isort . -v
+      # https://black.readthedocs.io/
+      - poetry run black .
+
+  lint:
+    aliases: [l]
+    desc: Run pylint via poetry
+    cmds:
+      # https://pylint.readthedocs.io/
+      - poetry run pylint . --recursive=y
+
+  all:
+    aliases: [a]
+    desc: Run all tasks in order
+    cmds:
+      - task: install
+      - task: fmt
+      - task: lint
