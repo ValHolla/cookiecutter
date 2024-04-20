@@ -2,6 +2,7 @@ import pygame
 
 from {{cookiecutter.pyproject_slug}} import settings
 
+
 class Shape:
     def __init__(self, game):
         self.game = game
@@ -18,10 +19,10 @@ class Shape:
         self.shape.y = round(self.pos.y)
 
         self.constrain_to_screen()
-        pygame.draw.rect(game.screen, (255, 255, 255), self.shape)
+        pygame.draw.rect(self.game.screen, (255, 255, 255), self.shape)
 
     def constrain_to_screen(self):
-        if self.shape.right > game.screen_width  or self.shape.left < 0:
+        if self.shape.right > self.game.screen_width or self.shape.left < 0:
             self.x_direction *= -1
-        if self.shape.bottom > game.screen_height  or self.shape.top < 0:
+        if self.shape.bottom > self.game.screen_height or self.shape.top < 0:
             self.y_direction *= -1
