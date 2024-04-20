@@ -12,7 +12,7 @@ class Game:
         self.screen_width = settings.SCREEN_WIDTH
         self.screen_height = settings.SCREEN_HEIGHT
         self.fps = settings.FPS
-        self.screen = pygame.display.set_mode(self.screen_width, self.screen_height)
+        self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         self.fill_screen()
         self.clock = pygame.time.Clock()
         self.start_time = time()
