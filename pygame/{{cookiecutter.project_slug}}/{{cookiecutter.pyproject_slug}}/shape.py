@@ -9,7 +9,7 @@ class Shape:
         self.y_direction = 1
         self.pos = pygame.math.Vector2(self.shape.topleft)
 
-    def move_shape(self, dt):
+    def move(self, dt):
         self.pos.x += self.x_direction * self.move_speed * dt
         self.pos.y += self.y_direction * self.move_speed * dt
         self.shape.x = round(self.pos.x)
